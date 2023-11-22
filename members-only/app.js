@@ -9,7 +9,7 @@ const LocalStrategy = require("passport-local").Strategy;
 require("dotenv").config();
 
 const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+const messageBoardRouter = require("./routes/messageBoard");
 const authRouter = require("./routes/auth");
 
 const app = express();
@@ -78,7 +78,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/messageboard", messageBoardRouter);
 app.use("/", authRouter);
 
 // catch 404 and forward to error handler
