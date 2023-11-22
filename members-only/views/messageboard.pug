@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+    h1= title 
+    
+    for message in messages 
+        h3 #{message.title}
+        p #{message.message}
+        p #{message.user.full_name}
+        p #{message.time_stamp}
