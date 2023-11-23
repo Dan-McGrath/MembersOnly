@@ -14,7 +14,7 @@ block content
             button.btn.btn-submit(type='submit') Submit
     .messages
         for message in messages
-            if currentUser.membership_status=='Private'
+            if currentUser.membership_status=='Private' || currentUser.membership_status=='Admin'
                 h3 #{message.title}
                 p #{message.message}
                 p #{message.user.username}
