@@ -13,7 +13,13 @@ html(lang='en')
             a(href='/') Home
           li 
             a(href='/messageboard') MessageBoard
-          if currentUser 
+          if currentUser
+            if currentUser.membership_status=='Public'
+              li 
+                a(href='/membership') Become a Private Member
+            else if currentUser.membership_status=='Private'
+              li 
+                a(href='/membership') Become an Admin
             li 
               a(href='/log_out') Log Out 
           else 
