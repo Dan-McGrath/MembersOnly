@@ -2,9 +2,25 @@ extends layout
 
 block content 
     h1= title 
-    
-    for message in messages 
-        h3 #{message.title}
-        p #{message.message}
-        p #{message.user.full_name}
-        p #{message.time_stamp}
+
+    .create-message 
+        form(method='POST' action='')
+            .form-group
+                label(for='title') Title:
+                input#title(type='text', placeholder='Title' name='title' required='true' value=(undefined===message ? '' : message.title))
+            .form-group 
+                label(for='message') Message:
+                textarea#message(name="message", cols="30", rows="10", placeholder="Only 250 characters allowed", value=(undefined===message ? '' : message.message)) 
+            button.btn.btn-submit(type='submit') Submit
+    .messages
+        for message in messages
+            if currentUser.membership_status=='Private'
+                h3 #{message.title}
+                p #{message.message}
+                p #{message.user.username}
+                p #{message.formatted_date}
+            else if currentUser.membership_status=='Public'
+                h3 #{message.title}
+                p #{message.message}
+                p Become a private member to see the posters name
+                p #{message.formatted_date}
