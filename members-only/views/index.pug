@@ -3,15 +3,15 @@ extends layout
 block content
   h1= title
   if currentUser
-    if currentUser.membership_status='Public' 
+    if currentUser.membership_status=='Public' 
       .hero 
         p Welcome Back #{currentUser.username}!
         p If you would like to see which user posted which message please become a private member. You can do so by entering the correct passcode by following the link above.
-    else if currentUser.membership_status='Private'
+    else if currentUser.membership_status=='Private'
       .hero
         p Welcome Back #{currentUser.username}!
         p Thank you for being a private member! If you would like to have admin privileges, you will need to enter the correct passcode by following the link above.
-    else if currentUser.membership_status='Admin'
+    else if currentUser.membership_status=='Admin'
       .hero
         p Welcome Back #{currentUser.username}!
         p You are an admin of this site. Please do not abuse your privileges. Thank you and have fun! 
