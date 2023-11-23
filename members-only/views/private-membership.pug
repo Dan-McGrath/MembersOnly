@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+    h1= title
+    p To become a private member please enter the correct passcode below.
+    form(method='POST', action='')
+        .form-group 
+            label(for='private-passcode') Passcode 
+            input#private-passcode(type='text', name='private-passcode', required='true')
+        button.btn.btn-submit Submit
+    
