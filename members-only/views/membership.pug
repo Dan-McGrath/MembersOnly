@@ -2,13 +2,13 @@ extends layout
 
 block content 
     h1= title
-    if currentUser=='Public'
+    if currentUser.membership_status=='Public'
         p To become a private member please enter the correct passcode below.
         form(method='POST', action='')
             .form-group 
                 label(for='private-passcode') Passcode 
                 input#private-passcode(type='text', name='private-passcode', required='true')
-     else if currentUser=='Private'
+    else if currentUser.membership_status=='Private'
         p To become an admin please enter the correct passcode below.
         form(method='POST', action='')
             .form-group 
