@@ -76,7 +76,6 @@ exports.change_membership_admin_post = [
     const errors = validationResult(req);
 
     const user = await User.findById(req.user);
-    console.log(user)
 
     const newUser = new User({
       first_name: user.first_name,
