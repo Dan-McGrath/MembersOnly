@@ -16,10 +16,10 @@ html(lang='en')
           if currentUser
             if currentUser.membership_status=='Public'
               li 
-                a(href='/membership') Become a Private Member
+                a(href='/membership/private') Become a Private Member
             else if currentUser.membership_status=='Private'
               li 
-                a(href='/membership') Become an Admin
+                a(href='/membership/admin') Become an Admin
             li 
               a(href='/log_out') Log Out 
           else 
