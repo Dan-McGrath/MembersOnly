@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+    h1= title
+    
+    p To become an admin please enter the correct passcode below.
+    form(method='POST', action='')
+        .form-group 
+            label(for='admin-passcode') Passcode 
+            input#private-passcode(type='text', name='admin-passcode', required='true')
+        button.btn.btn-submit Submit
