@@ -2,26 +2,26 @@ extends layout
 
 block content
   h1= title
-  if user
-    if user.membership_status='Public' 
+  if currentUser
+    if currentUser.membership_status='Public' 
       .hero 
-        p Welcome Back #{user.first_name}!
+        p Welcome Back #{currentUser.username}!
         p If you would like to become a private member to view who wrote which message please enter the passcode below.
       form(method="POST" action='')
         .form-group 
           label(for='private-passcode') Passcode: 
           input#private-passcode(type='text' name='private-passcode' placeholder='Passcode to be Private Member')
-    else if user.membership_status='Private'
+    else if currentUser.membership_status='Private'
       .hero
-        p Welcome Back #{user.first_name}!
+        p Welcome Back #{currentUser.username}!
         p Thank you for being a private member! If you are also an admin please enter the passcode below.
         form(method="POST" action='')
         .form-group 
           label(for='admin-passcode') Passcode: 
           input#admin-passcode(type='text' name='admin-passcode' placeholder='Passcode to be an Admin')
-    else if user.membership_status='Admin'
+    else if currentUser.membership_status='Admin'
       .hero
-        p Welcome Back #{user.first_name}!
+        p Welcome Back #{currentUser.username}!
         p You are an admin of this site. Please do not abuse your privileges. Thank you and have fun! 
   else 
     .hero
