@@ -12,6 +12,7 @@ require("dotenv").config();
 const indexRouter = require("./routes/index");
 const messageBoardRouter = require("./routes/messageBoard");
 const authRouter = require("./routes/auth");
+const membershipRouter = require("./routes/membership");
 
 const app = express();
 
@@ -87,6 +88,7 @@ app.use((req, res, next) => {
 app.use("/", indexRouter);
 app.use("/messageboard", messageBoardRouter);
 app.use("/", authRouter);
+app.use("/membership", membershipRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
